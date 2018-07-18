@@ -7,6 +7,8 @@ class Page extends CI_Controller {
 
 		$this->load->model("categorymodel","cm");
 		$this->load->model("subcategorymodel","scm");
+		$this->load->model("ProductModel","gtp");
+		$this->load->model("SellerModel","gts");
 	}
 
         public function index(){
@@ -37,14 +39,6 @@ class Page extends CI_Controller {
 			$this->load->view ('seller');
 		}
 
-	function savecategory(){
-		$data=array(
-			'name_category'=>$this->input->post('txtname_category'),
-		);
-		$this->db->insert('tbl_category', $data);
-		redirect('page/main_categories');
-	}
-
 	function deletecategory($categoryid){
 		$categoryid = $this->db->where('category_id', $categoryid);
 		$this->db->delete('tbl_category');
@@ -52,8 +46,8 @@ class Page extends CI_Controller {
 	}
 
 	function listcategoryname(){
-	$data['tbl_category']=$this->categorynamemodel->getcategorynamemodel();
-	$this->load->view('page/sub_categories',$data);
+		$data['tbl_category']=$this->categorynamemodel->getcategorynamemodel();
+		$this->load->view('page/sub_categories',$data);
  
     }
 	
@@ -72,6 +66,21 @@ class Page extends CI_Controller {
 		$this->db->delete('tbl_subcategory');
 		redirect('page/sub_categories','refresh');
 	}
+
+	function deleteproduct($productid){
+		$productid = $this->db->where('product_id', $productid);
+		$this->db->delete('tbl_product');
+		redirect('page/product','refresh');
+	}
+
+	function deleteseller($sellerid){
+		$sellerid = $this->db->where('seller_id', $sellerid);
+		$this->db->delete('tbl_seller');
+		redirect('page/seller','refresh');
+	}
+
+
+
 
 
 

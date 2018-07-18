@@ -5,7 +5,7 @@ class subcategorymodel extends CI_Model {
 	}
 
 	function gettablesubmain_category(){
-		$query=$this->db->get('tbl_subcategory');
+		$query=$this->db->query("SELECT tbl_subcategory.subcategory_id, tbl_category.name_category, tbl_subcategory.name_subcategory, tbl_subcategory.add_byusersubc, tbl_subcategory.date_entered FROM tbl_subcategory JOIN tbl_category WHERE tbl_subcategory.fcategory_id = tbl_category.category_id");
 		return $query->result();
 	}
 }

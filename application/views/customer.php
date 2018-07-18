@@ -52,7 +52,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tags"></i>Categories</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-thumb-tack"></i><a href="<?=base_url()?>index.php/page/main_categories">Main Categories</a></li>
+                            <li><i class="fa fa-thumb-tack"></i><a href="<?=base_url()?>index.php/category">Main Categories</a></li>
                             <li><i class="fa fa-tasks"></i><a href="<?=base_url()?>index.php/page/sub_categories">Sub Categories</a></li>
                         </ul>
                     </li>

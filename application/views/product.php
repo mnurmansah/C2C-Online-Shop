@@ -1,118 +1,11 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dashboard C2C-OS</title>
-    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <link href="<?php echo base_url('assets/css/normalize.css');?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/css/font-awesome.min.css');?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/css/themify-icons.css');?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/css/flag-icon.min.css');?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/css/cs-skin-elastic.css');?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/css/lib/datatable/dataTables.bootstrap.min.css');?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/scss/style.css');?>" rel="stylesheet">
-
-
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-
-</head>
-<body>
-
-
-        <!-- Left Panel -->
-
-        <!-- Left Panel -->
-       <!-- Left Panel -->
-      <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
-
-            <div class="navbar-header">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-bars"></i>
-                </button>
-
-                <a class="navbar-brand" href="./"><img src="<?php echo base_url() ?>images/log5.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="" ></a>
-            </div>
-
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="<?=base_url()?>index.php/page/dashboard"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
-                    </li>    
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tags"></i>Categories</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-thumb-tack"></i><a href="<?=base_url()?>index.php/page/main_categories">Main Categories</a></li>
-                            <li><i class="fa fa-tasks"></i><a href="<?=base_url()?>index.php/page/sub_categories">Sub Categories</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-archive"></i>Product</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-archive"></i><a href="<?=base_url()?>index.php/page/product">List Product</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Customers</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-user"></i><a href="<?=base_url()?>index.php/page/customer">List Customers</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Sellers</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-users"></i><a href="<?=base_url()?>index.php/page/seller">List Sellers</a></li>
-                        </ul>
-                    </li>                    
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>Orders</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-shopping-cart"></i><a href="index.php/page/orders.php">List Orders</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-dollar"></i>Payments</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-dollar"></i><a href="forms-basic.html">List Payments</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-truck"></i>Shipping</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-truck"></i><a href="forms-basic.html">List Shipping</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-male"></i>Users</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-male"></i><a href="users.php">List Users</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Report</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-book"></i><a href="reporta.php">Report A</a></li>
-                            <li><i class="menu-icon fa fa-book"></i><a href="reportb.php">Report B</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-    </aside><!-- /#left-panel -->
-
+<?php
+include('header.php');
+?>
+     <!-- Left Panel -->
+<?php
+include('sidebar.php');
+?>
     <!-- Left Panel -->
 
     <!-- Right Panel -->
@@ -180,22 +73,25 @@
                         <div class="card-body">
                     <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
                     <thead>
-                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 236.01px;">Name</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 387.01px;">Position</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 175.01px;">Office</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 138px;">Salary</th></tr>
+                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 100px;">Product ID</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Seller ID</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 100px;">Sub Category</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">Product Name</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">Product Price ($)</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">Product Condition</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">Product Date</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">Product Image</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 138px;">Action</th</tr>
                     </thead>
                     <tbody>
-
-                    <tr role="row" class="odd">
-                        <td class="sorting_1">Airi Satou</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>$162,700</td>
-                      </tr><tr role="row" class="even">
-                        <td class="sorting_1">Angelica Ramos</td>
-                        <td>Chief Executive Officer (CEO)</td>
-                        <td>London</td>
-                        <td>$1,200,000</td>
-                      </tr></tbody>
-                  </table></div></div>
+                    <?php 
+                    foreach ($this->gtp->gettableProduct() as $row) {
+                             echo "<tr>
+                             <td>$row->product_id</td>
+                             <td>$row->seller_id</td>
+                             <td>$row->subcategory_id</td>
+                             <td>$row->product_name</td>
+                             <td>$row->product_price</td>
+                             <td>$row->product_condition</td>
+                             <td>$row->product_date</td>
+                             <td>$row->img_thumbnail</td>
+                             <td><a href='".site_url('page/deleteproduct/'.$row->product_id)."'><button type='button' class='btn btn-danger'>Delete</button></a>
+                             </tr>";  
+                     }
+                    ?></tbody>
+                    </table></div></div>
                         </div>
                     </div>
                 </div>
