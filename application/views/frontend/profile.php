@@ -85,7 +85,7 @@ include('header.php');
 	<div class="well">
 		<div class="well "><img src="<?php echo site_url() ?>assets/themes/images/logo.png" ></div> 
 	</div>
-	<center><b><?php echo $this->session->userdata('seller_username') ?></b></center>
+	<center><b><?php echo $this->session->userdata('user_username') ?></b></center>
 </div>
 
   <div class="well">
@@ -109,7 +109,7 @@ include('header.php');
 		<li class="active">Post New Product</li>
     </ul>
     <div class="well">
-	<h3> Welcome! <strong><?php echo $this->session->userdata('user_username') ?></strong> to your account profile</h3>
+	
 	<?php
             //notifikasi
           if($this->session->flashdata('note')) 

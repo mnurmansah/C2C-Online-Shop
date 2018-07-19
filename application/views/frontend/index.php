@@ -25,12 +25,6 @@ include('header.php');
 	<div class="span6">Welcome! &nbsp<strong><?php echo $this->session->userdata('user_username') ?></strong></div>
 	<div class="span6">
 	<div class="pull-right">
-		<a href="product_summary.html"><span class="">Fr</span></a>
-		<a href="product_summary.html"><span class="">Es</span></a>
-		<span class="btn btn-mini">En</span>
-		<a href="product_summary.html"><span>&pound;</span></a>
-		<span class="btn btn-mini">$155.00</span>
-		<a href="product_summary.html"><span class="">$</span></a>
 		<a href="product_summary.html"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 3 ] Items in Your Cart </span> </a> 
 	</div>
 	</div>
@@ -46,14 +40,11 @@ include('header.php');
     <a class="brand" href="<?=base_url()?>index.php/frontend/index"><img src="<?php echo base_url() ?>assets/themes/images/logo.png" alt="Bootsshop"/></a>
 		<form class="form-inline navbar-search" method="post" action="products.html" >
 		<input id="srchFld" class="srchTxt" type="text" />
-		  <select class="srchTxt" name="txt_fcategoryid" placeholder="Select Category">
-			<option>All</option>
-			<option>CLOTHES </option>
-			<option>FOOD AND BEVERAGES </option>
-			<option>HEALTH & BEAUTY </option>
-			<option>SPORTS & LEISURE </option>
-			<option>BOOKS & ENTERTAINMENTS </option>
-		</select> 
+		   	<select class="form-control" name="user_subcategory" placeholder="Select Sub Category">
+ 			<?php $no=1; foreach($subcat as $rows => $value) : ?>
+ 				<option value="<?= $value->subcategory_id  ?>"><?= $value->name_subcategory ?></option>
+ 			<?php  $no++; endforeach; ?> 
+            </select>     
 		  <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
     </form>
     <?php if ($this->session->userdata('logged')) { ?>
@@ -331,6 +322,7 @@ include('sidebar.php');
 		</div>
 
 		<h4>Latest Products </h4>
+
 		<?php $no=1; foreach($postuser as $rows => $value) : ?>
 
 			 <ul class="thumbnails">
