@@ -22,7 +22,7 @@ include('header.php');
 <div id="header">
 <div class="container">
 <div id="welcomeLine" class="row">
-	<div class="span6">Welcome! &nbsp<strong><?php echo $this->session->userdata('seller_username') ?></strong></div>
+	<div class="span6">Welcome! &nbsp<strong><?php echo $this->session->userdata('user_username') ?></strong></div>
 	<div class="span6">
 	<div class="pull-right">
 		<a href="product_summary.html"><span class="">Fr</span></a>
@@ -58,10 +58,10 @@ include('header.php');
     </form>
     <?php if ($this->session->userdata('logged')) { ?>
     <ul id="topMenu" class="nav pull-right">
-	 <li class=""> <a href="<?=base_url()?>index.php/frontend/profile" role="button" style="padding-right:0"><span class="btn btn-large btn-success" ><?php echo $this->session->userdata('seller_username') ?></span></a></li>
+	 <li class=""> <a href="<?=base_url()?>index.php/frontend/profile" role="button" style="padding-right:0"><span class="btn btn-large btn-success" ><?php echo $this->session->userdata('user_username') ?></span></a></li>
 	<li class=""> <a href="<?=base_url()?>index.php/frontend/profile" " role="button" style="padding-right:0"><span class="btn btn-large btn-warning">Post Ads</span></a></li>
 	<li class="">
-	 <a href="<?=site_url('loginseller/logout')?>" role="button" style="padding-right:0"><span class="btn btn-large btn-danger">Sign Out</span></a>
+	 <a href="<?=site_url('loginuser/logout')?>" role="button" style="padding-right:0"><span class="btn btn-large btn-danger">Sign Out</span></a>
 	</li>
     </ul>
     <?php }else{ ?>
@@ -331,12 +331,12 @@ include('sidebar.php');
 		</div>
 
 		<h4>Latest Products </h4>
-		<?php $no=1; foreach($postseller as $rows => $value) : ?>
+		<?php $no=1; foreach($postuser as $rows => $value) : ?>
 
 			 <ul class="thumbnails">
 				<li class="span3">
 				  <div class="thumbnail">
-					<a  href="product_details.html"><img src="<?php echo base_url() ?>assets/seller/imagepost/<?php echo $value->img_thumbnail?>"/></a>
+					<a  href="product_details.html"><img src="<?php echo base_url() ?>assets/user/imagepost/<?php echo $value->img_thumbnail?>"/></a>
 					<div class="caption">
 					  <h5><?php echo $value->product_name?></h5>
 					 

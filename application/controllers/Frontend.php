@@ -6,7 +6,7 @@ class Frontend extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('SellerModel');
+        $this->load->model('UserModel');
         $this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 
@@ -14,8 +14,8 @@ class Frontend extends CI_Controller {
 
 	public function index()
 	{
-		$postSeller = $this->SellerModel->selectProduct();
-		$this->data['postseller'] = $postSeller;
+		$postUser = $this->UserModel->selectProduct();
+		$this->data['postuser'] = $postUser;
 		$this->load->view('frontend/index',$this->data);
 		
 	}
@@ -47,7 +47,7 @@ class Frontend extends CI_Controller {
 
 	public function profile()
 	{
-		$SubCat = $this->SellerModel->selectCat();
+		$SubCat = $this->UserModel->selectCat();
 		$this->data['subcat'] = $SubCat;
 		$this->load->view('frontend/profile',$this->data);
 	}
@@ -57,12 +57,12 @@ class Frontend extends CI_Controller {
 		$this->load->view('frontend/profile_yourproduct');
 	}
 
-	public function seller_regis(){
-	$config['upload_path']          = 'assets/seller/image';
+	public function user_regis(){
+	$config['upload_path']          = 'assets/user/image';
 		$config['allowed_types']        = 'gif|jpg|png';
 		$this->load->library('upload', $config);
  
- 	if ( ! $this->upload->do_upload('seller_img')) {
+ 	if ( ! $this->upload->do_upload('user_image')) {
  	$this->session->set_flashdata('gagal','Your file is not support with the requirement, please add again');
 	redirect('frontend/register');
 
@@ -72,29 +72,27 @@ class Frontend extends CI_Controller {
 			$gambar = $file['file_name'];
 			$i = $this->input;
 			$data = array(
-				'seller_fullname' 	=> $i->post('seller_fullname'),
-				'seller_username' 	=> $i->post('seller_username'),
-				'seller_password' 	=>sha1($i->post('seller_password')),
-				'seller_email' 		=> $i->post('seller_email'),
-				'seller_address' 	=> $i->post('seller_address'),
-				'seller_img'        => $gambar
+				'user_fullname' 	=> $i->post('user_fullname'),
+				'user_username' 	=> $i->post('user_username'),
+				'user_password' 	=>sha1($i->post('user_password')),
+				'user_email' 		=> $i->post('user_email'),
+				'user_address' 		=> $i->post('user_address'),
+				'user_image'        => $gambar
 		);
-	$this->SellerModel->insertSeller($data);
+	$this->UserModel->insertUser($data);
 	$this->session->set_flashdata('note','The data has been added');
 	redirect('frontend/register');
-
 
 	 }
 
 	}
 
-
-	public function seller_postproduct(){
-	$config['upload_path']          = 'assets/seller/imagepost';
+	public function user_postproduct(){
+	$config['upload_path']          = 'assets/user/imagepost';
 		$config['allowed_types']        = 'gif|jpg|png';
 		$this->load->library('upload', $config);
  
- 	if ( ! $this->upload->do_upload('seller_productimage')) {
+ 	if ( ! $this->upload->do_upload('user_productimage')) {
  	$this->session->set_flashdata('gagal','Your file is not support with the requirement, please add again');
 	redirect('frontend/profile');
 
@@ -104,19 +102,17 @@ class Frontend extends CI_Controller {
 			$gambar = $file['file_name'];
 			$i = $this->input;
 			$data = array(
-				'seller_id' 		=> $this->session->userdata('seller_id'),
-				'product_name' 		=> $i->post('seller_productname'),
-				'product_price' 	=> $i->post('seller_productprice'),
-				'subcategory_id' 	=> $i->post('seller_subcategory'),
-				'product_condition' => $i->post('seller_productcondition'),
+				'user_id' 			=> $this->session->userdata('user_id'),
+				'product_name' 		=> $i->post('user_productname'),
+				'product_price' 	=> $i->post('user_productprice'),
+				'subcategory_id' 	=> $i->post('user_subcategory'),
+				'product_condition' => $i->post('user_productcondition'),
 				'img_thumbnail'     => $gambar,
-				'product_desc' 		=> $i->post('seller_productdescription'),
+				'product_desc' 		=> $i->post('user_productdescription'),
 		);
-	$this->SellerModel->postSeller($data);
+	$this->UserModel->postUser($data);
 	$this->session->set_flashdata('note','The data has been added');
 	redirect('frontend/profile');
-
-
 	 }
 
 	}		

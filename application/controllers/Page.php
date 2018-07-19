@@ -8,7 +8,7 @@ class Page extends CI_Controller {
 		$this->load->model("categorymodel","cm");
 		$this->load->model("subcategorymodel","scm");
 		$this->load->model("ProductModel","gtp");
-		$this->load->model("SellerModel","gts");
+		$this->load->model("UserModel","um");
 	}
 
         public function index(){
@@ -31,12 +31,8 @@ class Page extends CI_Controller {
 			$this->load->view ('product');
 		}
 
-		public function customer() {
-			$this->load->view ('customer');
-		}
-
-		public function seller() {
-			$this->load->view ('seller');
+		public function user() {
+			$this->load->view ('user');
 		}
 
 	function deletecategory($categoryid){
@@ -73,11 +69,13 @@ class Page extends CI_Controller {
 		redirect('page/product','refresh');
 	}
 
-	function deleteseller($sellerid){
-		$sellerid = $this->db->where('seller_id', $sellerid);
-		$this->db->delete('tbl_seller');
-		redirect('page/seller','refresh');
+	function deleteuser($userid){
+		$userid = $this->db->where('user_id', $userid);
+		$this->db->delete('tbl_user');
+		redirect('page/user','refresh');
 	}
+
+
 
 
 

@@ -97,52 +97,51 @@ include('sidebar.php');
             }
       ?>	
     <div class="well">
-    	<h3>Registration Seller</h3>
+    	<h3>Registration</h3>
 
 	<div class="well">
 		<div class="alert alert-info">
 		   <ul class="nav nav-tabs">
-          <li><a href="<?=base_url()?>index.php/frontend/registercustomer"><i class="icon-pencil"></i> Registration as Customer</a></li>
-          <li><a href="<?=base_url()?>index.php/frontend/register"><i class="icon-user"></i> Registration as Seller</a></li>
+          <li><a href="<?=base_url()?>index.php/frontend/register"><i class="icon-user"></i> Registration</a></li>
           <li class="divider"></li>
         </ul>
 
-		<form class="form-horizontal" action="<?php echo site_url('frontend/seller_regis') ?>" method="Post" enctype="multipart/form-data">
+		<form class="form-horizontal" action="<?php echo site_url('frontend/user_regis') ?>" method="Post" enctype="multipart/form-data">
 		<div class="control-group">
-			<label class="control-label" for="Fullname">Seller Fullname <sup>*</sup></label>
+			<label class="control-label" for="Fullname">Fullname <sup>*</sup></label>
 			<div class="controls">
-			  <input type="text" id="Fullname"  name="seller_fullname" placeholder="Full Name" required>
+			  <input type="text" id="Fullname"  name="user_fullname" placeholder="Full Name" required>
 			</div>
 		 </div>
 		 <div class="control-group">
-			<label class="control-label" for="Username">Seller Username <sup>*</sup></label>
+			<label class="control-label" for="Username">Username <sup>*</sup></label>
 			<div class="controls">
-			  <input type="text" id="Username" name="seller_username" placeholder="Username" required>
+			  <input type="text" id="Username" name="user_username" placeholder="Username" required>
 			</div>
 		 </div>
 		 <div class="control-group">
-			<label class="control-label" for="Password">Seller Password <sup>*</sup></label>
+			<label class="control-label" for="Password">Password <sup>*</sup></label>
 			<div class="controls">
-			  <input type="password" id="Password" name="seller_password" placeholder="Password" required>
+			  <input type="password" id="Password" name="user_password" placeholder="Password" required>
 			</div>
 		 </div>
 		<div class="control-group">
-		<label class="control-label" for="Email">Seller Email <sup>*</sup></label>
+		<label class="control-label" for="Email">Email <sup>*</sup></label>
 		<div class="controls">
-		  <input type="email" id="Email" name="seller_email" placeholder="Email" required>
+		  <input type="email" id="Email" name="user_email" placeholder="Email" required>
 		</div>
 	  </div>	  
 	<div class="control-group">
-		<label class="control-label" for="location">Seller Address <sup>*</sup></label>
+		<label class="control-label" for="Address">Address <sup>*</sup></label>
 		<div class="controls">
-		  <input type="text" id="seller_address" name="seller_address" placeholder="Seller Address" required>
+		  <input type="text" id="Address" name="user_address" placeholder="Address" required>
 		</div>
 	  </div>
 
 	 <div class="control-group">
-		<label class="control-label" for="seller_img">Seller Image <sup>*</sup></label>
+		<label class="control-label" for="Image">Image Profile <sup>*</sup></label>
 		<div class="controls">
-		  <input type="file" id="seller_img" name="seller_img">
+		  <input type="file" id="Image" name="user_image">
 		</div>
 	  </div>
 	  <div class="control-group">

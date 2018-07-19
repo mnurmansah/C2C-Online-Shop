@@ -1,4 +1,4 @@
-﻿
+
 <?php
 include('header.php');
 ?>
@@ -57,9 +57,10 @@ include('header.php');
     </form>
       <?php if ($this->session->userdata('logged')) { ?>
     <ul id="topMenu" class="nav pull-right">
-	 <li class=""> <a href="<?=base_url()?>index.php/frontend/profile" role="button" style="padding-right:0"><span class="btn btn-large btn-success" ><?php echo $this->session->userdata('user_username') ?></span></a></li>
+	 <li class=""> <a href="<?=base_url()?>index.php/frontend/profile" role="button" style="padding-right:0"><span class="btn btn-large btn-success" ><?php echo $this->session->userdata('username') ?></span></a></li> 
+	 <!-- Penanda ================================================== --> 
 	<li class="">
-	 <a href="<?=site_url('loginuser/logout')?>" role="button" style="padding-right:0"><span class="btn btn-large btn-danger">Sign Out</span></a>
+	 <a href="<?=site_url('loginseller/logout')?>" role="button" style="padding-right:0"><span class="btn btn-large btn-danger">Sign Out</span></a>
 	</li>
     </ul>
     <?php }else{ ?>
@@ -85,7 +86,7 @@ include('header.php');
 	<div class="well">
 		<div class="well "><img src="<?php echo site_url() ?>assets/themes/images/logo.png" ></div> 
 	</div>
-	<center><b><?php echo $this->session->userdata('seller_username') ?></b></center>
+	<center><b><?php echo $this->session->userdata('username') ?></b></center>
 </div>
 
   <div class="well">
@@ -109,7 +110,8 @@ include('header.php');
 		<li class="active">Post New Product</li>
     </ul>
     <div class="well">
-	<h3> Welcome! <strong><?php echo $this->session->userdata('user_username') ?></strong> to your account profile</h3>
+    	<!-- Penanda ================================================== --> 
+	<h3> Welcome! <strong><?php echo $this->session->userdata('username') ?></strong> to your account profile</h3>
 	<?php
             //notifikasi
           if($this->session->flashdata('note')) 
@@ -133,22 +135,21 @@ include('header.php');
           <li><a href="<?=base_url()?>index.php/frontend/profile_yourproduct"><i class="icon-user"></i> Your Product</a></li>
           <li class="divider"></li>
         </ul>
+      <!-- Penanda ================================================== --> 
      <form class="form-horizontal" action="<?php echo site_url('frontend/user_postproduct') ?>" method="Post" enctype="multipart/form-data">
 	   	 
-	   	 <!--
 	   	 <div class="control-group">
 			<label class="control-label" for="MainCategoryProduct">Main Category Product<sup>*</sup></label>
 			<div class="controls">
  			<select class="form-control" name="user_maincategory" placeholder="Select Main Category">
- 				
+ 				<!--
  				<?php $no=1; foreach($subcat as $rows => $value) : ?>
  					<option value="<?= $value->subcategory_id  ?>"><?= $value->name_subcategory ?></option>
  				 <?php  $no++; endforeach; ?> 
- 				
+ 				--> 
             </select>        
 			</div>
-		 </div> 
-		-->
+		 </div>
 		 <div class="control-group">
 			<label class="control-label" for="SubCategoryProduct">Sub Category Product<sup>*</sup></label>
 			<div class="controls">

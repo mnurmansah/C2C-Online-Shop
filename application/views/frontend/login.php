@@ -61,42 +61,43 @@ include('header.php');
 include('sidebar.php');
 ?>
 <!-- Sidebar end=============================================== -->
-	<div class="span9">
+<div class="span9">
     <ul class="breadcrumb">
 		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
 		<li class="active">Login</li>
     </ul>
-    <div class="well">
-    	<h3>Login Option</h3>
-
-	<div class="well">
-		  <ul class="nav nav-tabs">
-		  <li><a href="<?=base_url()?>index.php/frontend/logincustomer"><i class="icon-user"></i> Login as Customer</a></li>
-          <li><a href="<?=base_url()?>index.php/frontend/login"><i class="icon-book"></i> Login as Seller</a></li>
-          <li class="divider"></li>
-        </ul>
-
-        <h5>ALREADY REGISTERED AS SELLER?</h5>
-			<form action="<?php echo site_url('loginseller/dologin') ?>" method="Post">
+	
+	<hr class="soft"/>
+	<div class="row">
+		<div class="span4">
+			<div class="well">
+				<center><h3> Login</h3></center>	
+				<div class="well">
+			<h5>ALREADY REGISTERED ?</h5>
+			<form action="<?php echo site_url('loginuser/dologin') ?>" method="Post">
 			  <div class="control-group">
 				<label class="control-label" for="inputEmail1">Username</label>
 				<div class="controls">
-				  <input class="span3"  name="seller_username" type="text" id="inputEmail1" placeholder="Username">
+				  <input class="span3"  name="user_username" type="text" id="inputEmail1" placeholder="Username">
 				</div>
 			  </div>
 			  <div class="control-group">
 				<label class="control-label" for="inputPassword1">Password</label>
 				<div class="controls">
-				  <input type="password" name="seller_password" class="span3"  id="inputPassword1" placeholder="Password">
+				  <input type="password" name="user_password" class="span3"  id="inputPassword1" placeholder="Password">
 				</div>
 			  </div>
 			  <div class="control-group">
 				<div class="controls">
-				  <button type="submit" class="btn">Sign in</button>                               <a href="forgetpass.html">Forget password?</a>
+				  <button type="submit" class="btn">Sign in</button> <a href="forgetpass.html">Forget password?</a>
 				</div>
 			  </div>
 			</form>
+		</div>
+		</div>
+	</div>
 	</div>	
+	
 </div>
 </div></div>
 </div>
@@ -105,3 +106,6 @@ include('sidebar.php');
 <?php
 include('footer.php');
 ?>
+
+
+

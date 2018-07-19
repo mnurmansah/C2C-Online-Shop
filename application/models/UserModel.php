@@ -1,18 +1,18 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class SellerModel extends CI_Model {
+class UserModel extends CI_Model {
 	public function __Construct(){
 		parent::__construct();
 	}
  
- function insertSeller($data) 
+ function insertUser($data) 
   	{
-      return $this->db->insert('tbl_seller',$data);
+      return $this->db->insert('tbl_user',$data);
     }
 
-   public function cekSeller($data) {
-        $this->db->where('seller_username', $data['seller_username']);
-        $this->db->where('seller_password', $data['seller_password']);
-        return $this->db->get('tbl_seller')->row_object();
+   public function cekUser($data) {
+        $this->db->where('user_username', $data['user_username']);
+        $this->db->where('user_password', $data['user_password']);
+        return $this->db->get('tbl_user')->row_object();
     }
 
     function selectCat(){
@@ -20,7 +20,7 @@ class SellerModel extends CI_Model {
       return $this->db->get('tbl_subcategory')->result();
     }
 
-   function postSeller($data) 
+   function postUser($data) 
     {
       return $this->db->insert('tbl_product',$data);
     }
@@ -29,8 +29,8 @@ class SellerModel extends CI_Model {
       $this->db->select('*');
       return $this->db->get('tbl_product')->result();
     }
-  function gettableSeller(){
-    $query=$this->db->get('tbl_seller');
+  function gettableUser(){
+    $query=$this->db->get('tbl_user');
     return $query->result();
   }
 
