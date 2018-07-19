@@ -78,7 +78,7 @@ include('sidebar.php');
 	<div class="span9">
     <ul class="breadcrumb">
 		<li><a href="<?=base_url()?>index.php/frontend/">Home</a> <span class="divider">/</span></li>
-		<li class="active">Registration Option</li>
+		<li class="active">Registration</li>
     </ul>
 	<?php
             //notifikasi
@@ -100,7 +100,6 @@ include('sidebar.php');
     	<h3>Registration</h3>
 
 	<div class="well">
-		<div class="alert alert-info">
 		   <ul class="nav nav-tabs">
           <li><a href="<?=base_url()?>index.php/frontend/register"><i class="icon-user"></i> Registration</a></li>
           <li class="divider"></li>
@@ -151,7 +150,6 @@ include('sidebar.php');
 		</div>	
 	</form>
 	</div>
-	</div>	
 </div>
 
 </div>
