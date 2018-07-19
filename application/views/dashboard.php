@@ -54,17 +54,11 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Customers</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>User</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-user"></i><a href="<?=base_url()?>index.php/page/customer">List Customers</a></li>
+                            <li><i class="fa fa-user"></i><a href="<?=base_url()?>index.php/page/user">List User</a></li>
                         </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Sellers</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-users"></i><a href="<?=base_url()?>index.php/page/seller">List Sellers</a></li>
-                        </ul>
-                    </li>                    
+                    </li>      
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>Orders</a>
                         <ul class="sub-menu children dropdown-menu">
