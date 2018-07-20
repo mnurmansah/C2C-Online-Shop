@@ -41,9 +41,10 @@ include('header.php');
 		<form class="form-inline navbar-search" method="post" action="products.html" >
 		<input id="srchFld" class="srchTxt" type="text" />
 		   	<select class="form-control" name="user_subcategory" placeholder="Select Sub Category">
- 			<?php $no=1; foreach($subcat as $rows => $value) : ?>
- 				<option value="<?= $value->subcategory_id  ?>"><?= $value->name_subcategory ?></option>
- 			<?php  $no++; endforeach; ?> 
+		   		<option value="null" selected disabled>Choose Category</option>
+ 			<?php foreach ($category as $cat): ?>
+ 				<option value="<?= $cat->category_id  ?>"><?php echo $cat->name_category ?></option>
+ 			<?php endforeach ?> 
             </select>     
 		  <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
     </form>
@@ -323,21 +324,21 @@ include('sidebar.php');
 
 		<h4>Latest Products </h4>
 
+			 <ul class="thumbnails">
 		<?php $no=1; foreach($postuser as $rows => $value) : ?>
 
-			 <ul class="thumbnails">
 				<li class="span3">
 				  <div class="thumbnail">
-					<a  href="product_details.html"><img src="<?php echo base_url() ?>assets/user/imagepost/<?php echo $value->img_thumbnail?>"/></a>
+					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/user/imagepost/<?php echo $value->img_thumbnail?>" style="max-height: 100px;"/></a>
 					<div class="caption">
 					  <h5><?php echo $value->product_name?></h5>
 					 
-					  <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">$<?php echo $value->product_price?></a></h4>
+					  <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <br><a class="btn btn-primary" href="#">$<?php echo $value->product_price?></a></h4>
 					</div>
 				  </div>
 				</li>
-			
 		<?php  $no++; endforeach; ?> 
+			</ul>
 
 		</div>
 		</div>

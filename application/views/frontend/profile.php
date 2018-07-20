@@ -81,12 +81,12 @@ include('header.php');
 	<div class="row">
 <!-- Sidebar ================================================== -->
 <div id="sidebar" class="span3">
+
 	<div class="well">
-	<div class="well">
-		<div class="well "><img src="<?php echo site_url() ?>assets/themes/images/logo.png" ></div> 
+		<div class="well "><img src="<?php echo base_url() ?>assets/user/image/<?php echo $this->session->userdata('user_image') ?>" ></div> 
+		<center><b><?php echo $this->session->userdata('user_username') ?></b></center>
 	</div>
-	<center><b><?php echo $this->session->userdata('user_username') ?></b></center>
-</div>
+
 
   <div class="well">
         <ul class="nav nav-tabs nav-stacked">
@@ -135,27 +135,27 @@ include('header.php');
         </ul>
      <form class="form-horizontal" action="<?php echo site_url('frontend/user_postproduct') ?>" method="Post" enctype="multipart/form-data">
 	   	 
-	   	 <!--
+	   	 
 	   	 <div class="control-group">
 			<label class="control-label" for="MainCategoryProduct">Main Category Product<sup>*</sup></label>
 			<div class="controls">
- 			<select class="form-control" name="user_maincategory" placeholder="Select Main Category">
- 				
- 				<?php $no=1; foreach($subcat as $rows => $value) : ?>
- 					<option value="<?= $value->subcategory_id  ?>"><?= $value->name_subcategory ?></option>
+ 			<select class="form-control" id="main_category" name="user_maincategory" onChange="getSubcategory()" placeholder="Select Main Category">
+ 				<option value="null" selected disabled>Choose Main Category</option>
+ 				<?php $no=1; foreach($maincat as $rows => $value) : ?>
+ 					<option value="<?= $value->category_id  ?>"><?= $value->name_category ?></option>
  				 <?php  $no++; endforeach; ?> 
  				
             </select>        
 			</div>
 		 </div> 
-		-->
 		 <div class="control-group">
 			<label class="control-label" for="SubCategoryProduct">Sub Category Product<sup>*</sup></label>
 			<div class="controls">
- 			<select class="form-control" name="user_subcategory" placeholder="Select Sub Category">
- 				<?php $no=1; foreach($subcat as $rows => $value) : ?>
- 					<option value="<?= $value->subcategory_id  ?>"><?= $value->name_subcategory ?></option>
- 				 <?php  $no++; endforeach; ?> 
+ 			<select class="form-control" id="subcategory" name="user_subcategory" placeholder="Select Sub Category" disabled>
+ 				<option value="null" selected disabled>Choose Sub Category</option>
+ 				<!-- <?php //$no=1; foreach($subcat as $rows => $value) : ?> -->
+ 					<!-- <option value="<?= $value->subcategory_id  ?>"><?= $value->name_subcategory ?></option> -->
+ 				 <!-- <?php  //$no++; endforeach; ?>  -->
             </select>        
 			</div>
 		 </div>
@@ -215,3 +215,15 @@ include('header.php');
 <?php
 include('footer.php');
 ?>
+
+<script type="text/javascript">
+	function getSubcategory(url) {
+		var test = $('#main_category').val();
+		var url = "getSubCategory";
+		// alert(test);
+		$.get(url,{ catId: test }, function(data) {
+			$('#subcategory').prop("disabled", false);
+			$('#subcategory').html(data);
+		});
+	};
+</script>

@@ -27,6 +27,7 @@ class UserModel extends CI_Model {
 
    function selectProduct(){
       $this->db->select('*');
+      $this->db->order_by('product_id','DESC');
       return $this->db->get('tbl_product')->result();
     }
   function gettableUser(){

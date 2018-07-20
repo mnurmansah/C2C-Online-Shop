@@ -22,8 +22,9 @@ function dologin() {
 		$dataUser = $this->UserModel->cekUser($data); // 4. Cek data berdasarkan username dan password
 		if ($dataUser) {
 			$sess_ = [ // 5. Hasil dari query ditampun di dalam variabel $sess_
-				'user_id' 			=> $dataUser->user_id,
+				'user_id' 				=> $dataUser->user_id,
 				'user_username' 		=> $dataUser->user_username,
+				'user_image'			=> $dataUser->user_image,
 				'logged' 				=> true,
 			];
 			$this->session->set_userdata( $sess_ ); // 6. Daftarin $sess_ ke session
@@ -36,7 +37,7 @@ function dologin() {
 
 	public function logout() {
 		$this->session->sess_destroy();
-		redirect('LoginUser');
+		redirect('frontend/login');
 	}
 
 

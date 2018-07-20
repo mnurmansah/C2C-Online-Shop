@@ -44,4 +44,8 @@ class Model_category extends CI_Model {
     private function deleteSubCategoryByCategory($categoryId) {
         return $this->db->where('fcategory_id', $categoryId)->delete('tbl_subcategory');
     }
+
+    public function loadSubCategoryByMainId($categoryId) {
+        return $this->db->where('fcategory_id', $categoryId)->get('tbl_subcategory')->result_object();
+    }
 }

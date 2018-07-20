@@ -7,40 +7,35 @@ class Frontend extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('UserModel');
+        $this->load->model('categorymodel');
+        $this->load->model("model_category","mc");
         $this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
+
+
+		$postUser = $this->UserModel->selectProduct();
+		$this->data['postuser'] = $postUser;
+		$this->data['category'] = $this->categorymodel->gettablemain_category();
+		$this->data['subcategory'] = $this->categorymodel->gettablesub_category();
 
     }
 
 	public function index()
 	{
-		$postUser = $this->UserModel->selectProduct();
-		$this->data['postuser'] = $postUser;
 		$this->load->view('frontend/index',$this->data);
 		
 	}
 
 	public function register()
 	{
-		$this->load->view('frontend/register');
+		$this->load->view('frontend/register',$this->data);
 		
 	}
 
-	public function registercustomer()
-	{
-		$this->load->view('frontend/registercustomer');
-		
-	}
 
 	public function login()
 	{
-		$this->load->view('frontend/login');
-		
-	}
-
-	public function logincustomer()
-	{
-		$this->load->view('frontend/logincustomer');
+		$this->load->view('frontend/login',$this->data);
 		
 	}
 
@@ -49,6 +44,7 @@ class Frontend extends CI_Controller {
 	{
 		$SubCat = $this->UserModel->selectCat();
 		$this->data['subcat'] = $SubCat;
+		$this->data['maincat'] = $this->mc->loadAll();
 		$this->load->view('frontend/profile',$this->data);
 	}
 
@@ -105,6 +101,7 @@ class Frontend extends CI_Controller {
 				'user_id' 			=> $this->session->userdata('user_id'),
 				'product_name' 		=> $i->post('user_productname'),
 				'product_price' 	=> $i->post('user_productprice'),
+				'category_id' 		=> $i->post('user_maincategory'),
 				'subcategory_id' 	=> $i->post('user_subcategory'),
 				'product_condition' => $i->post('user_productcondition'),
 				'img_thumbnail'     => $gambar,
@@ -117,6 +114,15 @@ class Frontend extends CI_Controller {
 
 	}		
 
+    public function getSubCategory() {
+        $main_categoryId = $_GET['catId'];
+        $subcategory = $this->mc->loadSubCategoryByMainId($main_categoryId);
 
+ 		echo '<option value="null" selected disabled>Choose Sub Category</option>';
+        foreach ($subcategory as $key) {
+        	echo '<option value="'.$key->subcategory_id.'">'.$key->name_subcategory.'</option>';
+        }
+        exit;
+    }
 }
 
