@@ -76,6 +76,7 @@ include('sidebar.php');
                                 <label class=" form-control-label">Category Name</label>
                                 <div class="card-body">
                                   <select class="form-control" name="txt_fcategoryid" placeholder="Select Category">
+                                    <option value="null" selected disabled>Choose Category</option>
                                     <?php
                                     foreach ($this->cm->gettablemain_category() as $row ) {
                                         echo "

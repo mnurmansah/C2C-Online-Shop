@@ -38,7 +38,7 @@ include('header.php');
 </a>
   <div class="navbar-inner">
     <a class="brand" href="<?=base_url()?>index.php/frontend/index"><img src="<?php echo base_url() ?>assets/themes/images/logo.png" alt="Bootsshop"/></a>
-		<form class="form-inline navbar-search" method="post" action="products.html" >
+		<form class="form-inline navbar-search" method="post" action="<?=base_url()?>index.php/frontend/search" >
 		<input id="srchFld" class="srchTxt" type="text" />
 		   	<select class="form-control" name="user_subcategory" placeholder="Select Sub Category">
 		   		<option value="null" selected disabled>Choose Category</option>
@@ -329,11 +329,11 @@ include('sidebar.php');
 
 				<li class="span3">
 				  <div class="thumbnail">
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/user/imagepost/<?php echo $value->img_thumbnail?>" style="max-height: 100px;"/></a>
+					<a href="<?=base_url()?>index.php/frontend/product_details"><img src="<?php echo base_url() ?>assets/user/imagepost/<?php echo $value->img_thumbnail?>" style="max-height: 100px;"/></a>
 					<div class="caption">
 					  <h5><?php echo $value->product_name?></h5>
 					 
-					  <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <br><a class="btn btn-primary" href="#">$<?php echo $value->product_price?></a></h4>
+					  <h4 style="text-align:center"><a class="btn" href="<?=base_url()?>index.php/frontend/product_details"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <br><a class="btn btn-primary" href="#">$<?php echo $value->product_price?></a></h4>
 					</div>
 				  </div>
 				</li>

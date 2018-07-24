@@ -5,7 +5,7 @@ class ProductModel extends CI_Model {
 	}
 
 	function gettableProduct(){
-		$query=$this->db->get('tbl_product');
-		return $query->result();
+
+		return $this->db->order_by('product_id','DESC')->get('tbl_product')->result_object();
 	}
 }

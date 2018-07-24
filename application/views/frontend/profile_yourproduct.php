@@ -81,12 +81,10 @@ include('header.php');
 	<div class="row">
 <!-- Sidebar ================================================== -->
 <div id="sidebar" class="span3">
-	<div class="well">
-	<div class="well">
-		<div class="well "><img src="<?php echo site_url() ?>assets/themes/images/logo.png" ></div> 
-	</div>
-	<center><b><?php echo $this->session->userdata('user_username') ?></b></center>
-</div>
+  <div class="well">
+    <div class="well "><img src="<?php echo base_url() ?>assets/user/image/<?php echo $this->session->userdata('user_image') ?>" ></div> 
+    <center><b><?php echo $this->session->userdata('user_username') ?></b></center>
+  </div>
 
   <div class="well">
         <ul class="nav nav-tabs nav-stacked">
@@ -133,18 +131,40 @@ include('header.php');
           <li class="divider"></li>
         </ul>
 
-                    <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
-                    <thead>
-                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 100px;">Product ID</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 100px;">Main Category</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 100px;">Sub Category</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">Product Name</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">Product Price ($)</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">Product Condition</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">Product Date</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">Product Image</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">Action</th></tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
+        <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Product ID</th>
+                  <th>Main Category</th>
+                  <th>Sub Category</th>
+                  <th>Product Name</th>
+                  <th>Product Price ($)</th>
+                  <th>Product Condition</th>
+                  <th>Product Date</th>
+                  <th>Product Image</th>
+                  <th>Action</th>
+        </tr>
+              </thead>
+              <tbody>
+                <?php 
+                    foreach ($this->UserModel->gettableUserProduct() as $row) {
+                             echo "<tr>
+                             <td>$row->product_id</td>
+                             <td>$row->name_category</td>
+                             <td>$row->name_subcategory</td>
+                             <td>$row->product_name</td>
+                             <td>$row->product_price</td>
+                             <td>$row->product_condition</td>
+                             <td>$row->product_date</td>
+                             <td>$row->img_thumbnail</td>
+                             <td><a href='".site_url('page/deleteproduct/'.$row->product_id)."'><button type='button' class='btn btn-danger'>X</button></a>
+                             </tr>";  
+                     }
+                    ?></tbody>
                     </table>
-
-
-
     </div>
 
+    
 
 
 	

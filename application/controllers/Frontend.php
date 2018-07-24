@@ -48,6 +48,16 @@ class Frontend extends CI_Controller {
 		$this->load->view('frontend/profile',$this->data);
 	}
 
+	public function search()
+	{
+		$this->load->view('frontend/search',$this->data);
+	}
+
+	public function product_details()
+	{
+		$this->load->view('frontend/product_details',$this->data);
+	}
+
 	public function profile_yourproduct()
 	{
 		$this->load->view('frontend/profile_yourproduct');
