@@ -17,64 +17,10 @@ include('header.php');
 }
 </style>
 
+<?php
+include('header_frontend.php');
+?>
 
-<div id="header">
-<div class="container">
-<div id="welcomeLine" class="row">
-	<div class="span6"> </div>
-	<div class="span6">
-	<div class="pull-right">
-		<a href="product_summary.html"><span class="">Fr</span></a>
-		<a href="product_summary.html"><span class="">Es</span></a>
-		<span class="btn btn-mini">En</span>
-		<a href="product_summary.html"><span>&pound;</span></a>
-		<span class="btn btn-mini">$155.00</span>
-		<a href="product_summary.html"><span class="">$</span></a>
-		<a href="product_summary.html"><span class="btn btn-mini btn-primary"><i class="icon-user"></i>Profile</span> </a> 
-	</div>
-	</div>
-</div>
-<!-- Navbar ================================================== -->
-<div id="logoArea" class="navbar">
-<a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
-	<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-</a>
-  <div class="navbar-inner">
-    <a class="brand" href="<?=base_url()?>index.php/frontend/index"><img src="<?php echo base_url() ?>assets/themes/images/logo.png" alt="Bootsshop"/></a>
-		<form class="form-inline navbar-search" method="post" action="products.html" >
-		<input id="srchFld" class="srchTxt" type="text" />
-		  <select class="srchTxt">
-			<option>All</option>
-			<option>CLOTHES </option>
-			<option>FOOD AND BEVERAGES </option>
-			<option>HEALTH & BEAUTY </option>
-			<option>SPORTS & LEISURE </option>
-			<option>BOOKS & ENTERTAINMENTS </option>
-		</select> 
-		  <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
-    </form>
-      <?php if ($this->session->userdata('logged')) { ?>
-    <ul id="topMenu" class="nav pull-right">
-	 <li class=""> <a href="<?=base_url()?>index.php/frontend/profile" role="button" style="padding-right:0"><span class="btn btn-large btn-success" ><?php echo $this->session->userdata('user_username') ?></span></a></li>
-	<li class="">
-	 <a href="<?=site_url('loginuser/logout')?>" role="button" style="padding-right:0"><span class="btn btn-large btn-danger">Sign Out</span></a>
-	</li>
-    </ul>
-    <?php }else{ ?>
-	<ul id="topMenu" class="nav pull-right">
-	 <li class=""> <a href="<?=base_url()?>index.php/frontend/register" role="button" style="padding-right:0"><span class="btn btn-large btn-success" >Register</span></a></li>
-	 <li class="">
-	 <a href="<?=base_url()?>index.php/frontend/login" role="button" style="padding-right:0"><span class="btn btn-large btn-success">Log in</span></a>
-	</li>
-	<li class=""> <a href="<?=base_url()?>index.php/frontend/login" role="button" style="padding-right:0"><span class="btn btn-large btn-warning">Post Free Ads</span></a></li>
-    </ul>
-    <?php } ?>	
-  </div>
-</div>
-</div>
-</div>
 <!-- Header End====================================================================== -->
 <div id="mainBody">
 	<div class="container">
@@ -89,9 +35,10 @@ include('header.php');
   <div class="well">
         <ul class="nav nav-tabs nav-stacked">
           <li class="nav-header">Main Navigation</li>          
-          <li><a href="#"><i class="icon-user"></i> Profile</a></li>
-          <li><a href="#"><i class="icon-pencil"></i> Notifications</a></li>
-          <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+          <li><a href="<?=base_url()?>index.php/frontend/profile"><i class="icon-user"></i> My Profile</a></li>
+          <li><a href="<?=base_url()?>index.php/frontend/post_product"><i class="icon-pencil"></i> Post & Your Product</a></li>
+          <li><a href="<?=base_url()?>index.php/frontend/"><i class="icon-book"></i> History Order</a></li>
+          <li><a href="<?=base_url()?>index.php/frontend/change_password"><i class="icon-cog"></i> Change Password</a></li>
           <li class="divider"></li>
           <li><a href="#"><i class="icon-flag"></i> Help</a></li>
         </ul>
@@ -104,7 +51,7 @@ include('header.php');
 	<div class="span9">
     <ul class="breadcrumb">
 		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
-		<li class="active">Your Product</li>
+		<li class="active">Your Product Sell</li>
     </ul>
     <div class="well">
 	<?php
@@ -126,8 +73,8 @@ include('header.php');
 
 	<div class="well">
 		   <ul class="nav nav-tabs">
-          <li><a href="<?=base_url()?>index.php/frontend/profile"><i class="icon-pencil"></i> Post New Product</a></li>
-          <li><a href="<?=base_url()?>index.php/frontend/profile_yourproduct"><i class="icon-user"></i> Your Product</a></li>
+          <li><a href="<?=base_url()?>index.php/frontend/post_product"><i class="icon-pencil"></i> Post New Product</a></li>
+          <li><a href="<?=base_url()?>index.php/frontend/profile_yourproduct"><i class="icon-user"></i> Your Product Sell</a></li>
           <li class="divider"></li>
         </ul>
 
@@ -139,6 +86,7 @@ include('header.php');
                   <th>Sub Category</th>
                   <th>Product Name</th>
                   <th>Product Price ($)</th>
+                  <th>Product Quantity</th>
                   <th>Product Condition</th>
                   <th>Product Date</th>
                   <th>Product Image</th>
@@ -154,10 +102,15 @@ include('header.php');
                              <td>$row->name_subcategory</td>
                              <td>$row->product_name</td>
                              <td>$row->product_price</td>
+                             <td>$row->product_quantity</td>
                              <td>$row->product_condition</td>
                              <td>$row->product_date</td>
-                             <td>$row->img_thumbnail</td>
-                             <td><a href='".site_url('page/deleteproduct/'.$row->product_id)."'><button type='button' class='btn btn-danger'>X</button></a>
+                             <td><img src='".base_url('assets/user/imagepost/'.$row->img_thumbnail)."'/></td>
+
+
+                             <td><a href='".site_url('frontend/'.$row->product_id)."'><button type='button' class='btn btn-primary'>Edit</button></a>
+                             <td><a href='".site_url('frontend/user_deleteproduct/'.$row->product_id)."'><button type='button' class='btn btn-danger'>Delete</button></a>
+                             
                              </tr>";  
                      }
                     ?></tbody>

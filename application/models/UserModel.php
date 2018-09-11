@@ -37,12 +37,7 @@ class UserModel extends CI_Model {
 
   function gettableUserProduct(){
     $user_id = $this->session->userdata('user_id');
-
-    //$where = "user_id='".$user_id."'";
-
-    //$this->db->where($where);
-
-    $query = $this->db->query("SELECT tbl_product.product_id, tbl_category.name_category,tbl_subcategory.name_subcategory,tbl_product.product_name,tbl_product.product_price, tbl_product.product_condition, tbl_product.product_date, tbl_product.img_thumbnail FROM tbl_product LEFT JOIN tbl_category ON tbl_product.category_id=tbl_category.category_id LEFT JOIN tbl_subcategory ON tbl_product.subcategory_id=tbl_subcategory.subcategory_id WHERE tbl_product.user_id='".$user_id."'");
+    $query = $this->db->query("SELECT tbl_product.product_id, tbl_category.name_category,tbl_subcategory.name_subcategory,tbl_product.product_name,tbl_product.product_price, tbl_product.product_quantity,tbl_product.product_condition, tbl_product.product_date, tbl_product.img_thumbnail FROM tbl_product LEFT JOIN tbl_category ON tbl_product.category_id=tbl_category.category_id LEFT JOIN tbl_subcategory ON tbl_product.subcategory_id=tbl_subcategory.subcategory_id WHERE tbl_product.user_id='".$user_id."'");
 
     //$query=$this->db->get('tbl_product');
     return $query->result();

@@ -51,4 +51,8 @@ class Dashboard extends CI_Controller {
 			$this->load->view ('user');
 		}
 
+		public function shipping() {
+			$this->load->view ('shipping');
+		}
+
 }

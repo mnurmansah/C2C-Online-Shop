@@ -18,58 +18,11 @@ include('header.php');
 
 </style>
 
+<?php
+include('header_frontend.php');
+?>
 
-<div id="header">
-<div class="container">
-<div id="welcomeLine" class="row">
-	<div class="span6">Welcome! &nbsp<strong><?php echo $this->session->userdata('user_username') ?></strong></div>
-	<div class="span6">
-	<div class="pull-right">
-		<a href="product_summary.html"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 3 ] Items in Your Cart </span> </a> 
-	</div>
-	</div>
-</div>
-<!-- Navbar ================================================== -->
-<div id="logoArea" class="navbar">
-<a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
-	<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-</a>
-  <div class="navbar-inner">
-    <a class="brand" href="<?=base_url()?>index.php/frontend/index"><img src="<?php echo base_url() ?>assets/themes/images/logo.png" alt="Bootsshop"/></a>
-		<form class="form-inline navbar-search" method="post" action="<?=base_url()?>index.php/frontend/search" >
-		<input id="srchFld" class="srchTxt" type="text" />
-		   	<select class="form-control" name="user_subcategory" placeholder="Select Sub Category">
-		   		<option value="null" selected disabled>Choose Category</option>
- 			<?php foreach ($category as $cat): ?>
- 				<option value="<?= $cat->category_id  ?>"><?php echo $cat->name_category ?></option>
- 			<?php endforeach ?> 
-            </select>     
-		  <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
-    </form>
-    <?php if ($this->session->userdata('logged')) { ?>
-    <ul id="topMenu" class="nav pull-right">
-	 <li class=""> <a href="<?=base_url()?>index.php/frontend/profile" role="button" style="padding-right:0"><span class="btn btn-large btn-success" ><?php echo $this->session->userdata('user_username') ?></span></a></li>
-	<li class=""> <a href="<?=base_url()?>index.php/frontend/profile" " role="button" style="padding-right:0"><span class="btn btn-large btn-warning">Post Ads</span></a></li>
-	<li class="">
-	 <a href="<?=site_url('loginuser/logout')?>" role="button" style="padding-right:0"><span class="btn btn-large btn-danger">Sign Out</span></a>
-	</li>
-    </ul>
-    <?php }else{ ?>
-	<ul id="topMenu" class="nav pull-right">
-	 <li class=""> <a href="<?=base_url()?>index.php/frontend/register" role="button" style="padding-right:0"><span class="btn btn-large btn-success" >Register</span></a></li>
-	 <li class="">
-	 <a href="<?=base_url()?>index.php/frontend/login" role="button" style="padding-right:0"><span class="btn btn-large btn-success">Log in</span></a>
-	</li>
-	<li class=""> <a href="<?=base_url()?>index.php/frontend/login" role="button" style="padding-right:0"><span class="btn btn-large btn-warning">Post Free Ads</span></a></li>
-    </ul>
-    <?php } ?>	
-    
-  </div>
-</div>
-</div>
-</div>
+
 <!-- Header End====================================================================== -->
 <div id="carouselBlk">
 	<div id="myCarousel" class="carousel slide">
@@ -328,12 +281,26 @@ include('sidebar.php');
 		<?php $no=1; foreach($postuser as $rows => $value) : ?>
 
 				<li class="span3">
+					<form action="<?php echo site_url('cart/add') ?>" method="post">
 				  <div class="thumbnail">
-					<a href="<?=base_url()?>index.php/frontend/product_details"><img src="<?php echo base_url() ?>assets/user/imagepost/<?php echo $value->img_thumbnail?>" style="max-height: 100px;"/></a>
+
+				  		<a href="<?=base_url()?>index.php/frontend/product_details/"><img src="<?php echo base_url() ?>assets/user/imagepost/<?php echo $value->img_thumbnail?>" style="max-height: 120px"/></a>
 					<div class="caption">
 					  <h5><?php echo $value->product_name?></h5>
 					 
-					  <h4 style="text-align:center"><a class="btn" href="<?=base_url()?>index.php/frontend/product_details"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <br><a class="btn btn-primary" href="#">$<?php echo $value->product_price?></a></h4>
+					  <h4 style="text-align:center"><a class="btn" href="<?php echo site_url('frontend/product_details/'.$value->product_id) ?>"><i class="icon-zoom-in"></i>View</a> 
+
+					  <input type="hidden" name="product_id" value="<?php echo $value->product_id?>">
+					  <input type="hidden" name="img_thumbnail" value="<?php echo $value->img_thumbnail?>">
+					  <input type="hidden" name="product_name" value="<?php echo $value->product_name?>">
+					  <input type="hidden" name="product_price" value="<?php echo $value->product_price?>">
+					  <input type="hidden" name="product_quantity" value="1">
+					  <input type="submit"  value="Add to Cart" class="btn btn-danger">
+
+					  <br>
+					  <a class="btn btn-info">$<?php echo $value->product_price?></a></h4>
+				  	</form>
+					
 					</div>
 				  </div>
 				</li>

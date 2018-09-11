@@ -83,7 +83,7 @@ include('sidebar.php');
                              <td>$row->user_username</td>
                              <td>$row->user_email</td>
                              <td>$row->user_address</td>
-                             <td>$row->user_image</td>
+                             <td><img src='".base_url('assets/user/image/'.$row->user_image)."'/></td>
                              <td>$row->user_registerdate</td>
                              <td>$row->user_disabled</td>
                              <td><a href='".site_url('page/deleteuser/'.$row->user_id)."'><button type='button' class='btn btn-danger'>Delete</button></a>

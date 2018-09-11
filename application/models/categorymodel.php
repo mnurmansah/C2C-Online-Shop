@@ -20,4 +20,21 @@ class categorymodel extends CI_Model {
 		$query=$this->db->join('tbl_subcategory','tbl_category.category_id = tbl_subcategory.fcategory_id');
 		return $query->get()->result();
 	}
+
+	function findProduct($subcategory_id='all',$name=null){
+		$this->db->select('*');
+		if ($subcategory_id!='all') {
+			$this->db->where('category_id',$subcategory_id);
+		}
+		if ($name!='') {
+			$this->db->like('product_name',$name, 'both');
+		}
+		return $this->db->get('tbl_product')->result();
+	}
+
+	function findProductBySub($subcategory_id){
+		$this->db->select('*');
+		$this->db->where('subcategory_id',$subcategory_id);
+		return $this->db->get('tbl_product')->result();
+	}
 }

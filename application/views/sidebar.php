@@ -28,40 +28,45 @@
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>User</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Users</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-user"></i><a href="<?=base_url()?>index.php/page/user">List User</a></li>
+                        <li><i class="fa fa-user"></i><a href="<?=base_url()?>index.php/page/user">List Users</a></li>
+                    </ul>
+                </li>
+                 <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>Product Detail Orders</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="menu-icon fa fa-shopping-cart"></i><a href="<?=base_url()?>index.php/page/detailorder">List Product Detail Orders</a></li>
                     </ul>
                 </li>                  
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>Orders</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-shopping-cart"></i><a href="index.php/page/orders.php">List Orders</a></li>
+                        <li><i class="menu-icon fa fa-shopping-cart"></i><a href="<?=base_url()?>index.php/page/order">List Orders</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-dollar"></i>Payments</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-dollar"></i><a href="forms-basic.html">List Payments</a></li>
+                        <li><i class="menu-icon fa fa-dollar"></i><a href="<?=base_url()?>index.php/page/payment">List Payments</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-truck"></i>Shipping</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-truck"></i><a href="forms-basic.html">List Shipping</a></li>
+                        <li><i class="menu-icon fa fa-truck"></i><a href="<?=base_url()?>index.php/shipping">List Shipping</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-male"></i>Users</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-male"></i>Admin User</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-male"></i><a href="users.php">List Users</a></li>
+                        <li><i class="menu-icon fa fa-male"></i><a href="<?=base_url()?>index.php/page/adminuser">List Admin User</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-book"></i>Report</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-book"></i><a href="reporta.php">Report A</a></li>
-                        <li><i class="menu-icon fa fa-book"></i><a href="reportb.php">Report B</a></li>
+                        <li><i class="menu-icon fa fa-book"></i><a href="<?=base_url()?>index.php/page/reportorder">Report Orders</a></li>
                     </ul>
                 </li>
             </ul>

@@ -9,6 +9,11 @@ class Page extends CI_Controller {
 		$this->load->model("subcategorymodel","scm");
 		$this->load->model("ProductModel","gtp");
 		$this->load->model("UserModel","um");
+		$this->load->model("ShippingModel","sm");
+		$this->load->model("OrderModel","om");
+		$this->load->model("PaymentModel","pm");
+		$this->load->model("DetailOrderModel","dom");
+		$this->load->model("ReportOrderModel","rom");
 	}
 
         public function index(){
@@ -27,12 +32,36 @@ class Page extends CI_Controller {
 			$this->load->view ('sub_categories');
 		}
 
+		public function shipping() {
+			$this->load->view ('shipping');
+		}
+
 		public function product() {
 			$this->load->view ('product');
 		}
 
+		public function order() {
+			$this->load->view ('order');
+		}
+
 		public function user() {
 			$this->load->view ('user');
+		}
+
+		public function payment() {
+			$this->load->view ('payment');
+		}
+
+		public function detailorder() {
+			$this->load->view ('detailorder');
+		}
+
+		public function reportorder() {
+			$this->load->view ('reportorder');
+		}
+
+		public function adminuser() {
+			$this->load->view ('adminuser');
 		}
 
 	function deletecategory($categoryid){
@@ -74,6 +103,21 @@ class Page extends CI_Controller {
 		$this->db->delete('tbl_user');
 		redirect('page/user','refresh');
 	}
+
+	function deleteorder($orderid){
+		$orderid = $this->db->where('order_id', $orderid);
+		$this->db->delete('tbl_order');
+		redirect('page/order','refresh');
+	}
+
+	function deletepayment($paymentid){
+		$paymentid = $this->db->where('payment_id', $paymentid);
+		$this->db->delete('tbl_payment');
+		redirect('page/payment','refresh');
+	}
+
+
+
 
 
 

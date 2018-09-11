@@ -131,25 +131,22 @@ include('sidebar.php');
                             <strong class="card-title">List Category</strong>
                         </div>
                         <div class="card-body">
-                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Category ID</th>
-                                                                    <th>Name Category</th>
-                                                                    <th>Add By User</th>
-                                                                    <th>Date Entered</th>
-                                                                </tr>
-                                                            </thead>
+    <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
+                    <thead>
+                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 150px;">Category ID</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 350px;">Category Name</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 210px;">Date Entered</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 1px;">Action</th></tr>
+                    </thead>
                     <tbody>
                     <?php 
                                                                     foreach ($this->mc->loadAll() as $row) {
                                                                       echo "<tr>
                                                                           <td>$row->category_id</td>
                                                                           <td>$row->name_category</td>
-                                                                          <td>$row->add_byuser</td>
+
                                                                           <td>$row->date_entered</td>
-                                                                          <td><a href='".site_url('category/delete/'.$row->category_id)."'><button type='button' class='btn btn-danger'>Delete</button></a>
-                                                                          <a href='".site_url('category/edit/'.$row->category_id)."'><button type='button' class='btn btn-warning'>Edit</button></a></td>
+                                                                          <td><a href='".site_url('category/edit/'.$row->category_id)."'><button type='button' class='btn btn-warning'>Edit</button></a>
+
+                                                                          <a href='".site_url('category/delete/'.$row->category_id)."'><button type='button' class='btn btn-danger'>Delete</button></a>
+                                                                          </td>
                                                                       </tr>";  
                                                                     }
                                                                  ?>

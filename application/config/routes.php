@@ -17,6 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | so that a different class/function is called than the one
 | corresponding to the URL.
 |
+
 | Please see the user guide for complete details:
 |
 |	https://codeigniter.com/user_guide/general/routing.html
@@ -60,3 +61,8 @@ $route['category/add'] = 'Category_controller/addNewCategory';
 $route['category/delete/(:any)'] = 'Category_controller/deleteCategory/$1';
 $route['category/edit/(:any)'] = 'Category_controller/setEditState/$1';
 $route['category/edit/(:any)/save'] = 'Category_controller/saveEdit/$1';
+$route['shipping'] = 'Shipping/index';
+$route['shipping/add'] = 'Shipping/saveshipping';
+$route['Shipping/delete/(:any)'] = 'Shipping/deleteshipping/$1';
+$route['shipping/edit/(:any)'] = 'Shipping/editstateshipping/$1';
+$route['Shipping/edit/(:any)/save'] = 'Shipping/editshipping/$1';

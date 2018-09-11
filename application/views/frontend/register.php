@@ -17,55 +17,10 @@ include('header.php');
 }
 </style>
 
+<?php
+include('header_frontend.php');
+?>
 
-<div id="header">
-<div class="container">
-<div id="welcomeLine" class="row">
-	<div class="span6">Welcome!</div>
-	<div class="span6">
-	<div class="pull-right">
-		<a href="product_summary.html"><span class="">Fr</span></a>
-		<a href="product_summary.html"><span class="">Es</span></a>
-		<span class="btn btn-mini">En</span>
-		<a href="product_summary.html"><span>&pound;</span></a>
-		<span class="btn btn-mini">$155.00</span>
-		<a href="product_summary.html"><span class="">$</span></a>
-		<a href="product_summary.html"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> [ 3 ] Items in Your Cart </span> </a> 
-	</div>
-	</div>
-</div>
-<!-- Navbar ================================================== -->
-<div id="logoArea" class="navbar">
-<a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
-	<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-</a>
-  <div class="navbar-inner">
-    <a class="brand" href="<?=base_url()?>index.php/frontend/index"><img src="<?php echo base_url() ?>assets/themes/images/logo.png" alt="Bootsshop"/></a>
-		<form class="form-inline navbar-search" method="post" action="products.html" >
-		<input id="srchFld" class="srchTxt" type="text" />
-		  <select class="srchTxt">
-			<option>All</option>
-			<option>CLOTHES </option>
-			<option>FOOD AND BEVERAGES </option>
-			<option>HEALTH & BEAUTY </option>
-			<option>SPORTS & LEISURE </option>
-			<option>BOOKS & ENTERTAINMENTS </option>
-		</select> 
-		  <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
-    </form>
-   <ul id="topMenu" class="nav pull-right">
-	 <li class=""> <a href="<?=base_url()?>index.php/frontend/register" role="button" style="padding-right:0"><span class="btn btn-large btn-success" >Register</span></a></li>
-	 <li class="">
-	 <a href="<?=base_url()?>index.php/frontend/login" role="button" style="padding-right:0"><span class="btn btn-large btn-success">Log in</span></a>
-	</li>
-	<li class=""> <a href="<?=base_url()?>index.php/frontend/postfreeads" role="button" style="padding-right:0"><span class="btn btn-large btn-warning">Post Free Ads</span></a></li>
-    </ul>
-  </div>
-</div>
-</div>
-</div>
 <!-- Header End====================================================================== -->
 <div id="mainBody">
 	<div class="container">
@@ -129,14 +84,31 @@ include('sidebar.php');
 		<div class="controls">
 		  <input type="email" id="Email" name="user_email" placeholder="Email" required>
 		</div>
-	  </div>	  
+	  </div>
+	  	<div class="control-group">
+		<label class="control-label" for="Email">Phone Number <sup>*</sup></label>
+		<div class="controls">
+		  <input type="text" id="Phonenumber" name="user_phonenumber" placeholder="Phone Number" required>
+		</div>
+	  </div>	  	  
 	<div class="control-group">
 		<label class="control-label" for="Address">Address <sup>*</sup></label>
 		<div class="controls">
 		  <input type="text" id="Address" name="user_address" placeholder="Address" required>
 		</div>
 	  </div>
-
+	  <div class="control-group">
+		<label class="control-label" for="user_locationlang">User Coordinate Longitude <sup>*</sup></label>
+		<div class="controls">
+		  <input type="text" id="user_locationlang" name="user_locationlang" placeholder="Location Coordinate Longitude" required>
+		</div>
+	  </div>
+	  <div class="control-group">
+		<label class="control-label" for="user_locationlat">User Coordinate Latitude <sup>*</sup></label>
+		<div class="controls">
+		  <input type="text" id="user_locationlat" name="user_locationlat" placeholder="Location Coordinate Latitude" required>
+		</div>
+	  </div>
 	 <div class="control-group">
 		<label class="control-label" for="Image">Image Profile <sup>*</sup></label>
 		<div class="controls">

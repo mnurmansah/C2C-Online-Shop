@@ -122,7 +122,7 @@ include('sidebar.php');
                         <div class="card-body">
                     <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
                     <thead>
-                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 150px;">Sub Category ID</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 150px;">Category Name</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 175.01px;">Sub Category Name</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 138px;">Add By User</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 138px;">Date Entered</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 138px;">Action</th></tr>
+                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 150px;">Sub Category ID</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 150px;">Category Name</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 175.01px;">Sub Category Name</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 138px;">Date Entered</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" style="width: 10px;">Action</th></tr>
                     </thead>
                     <tbody>
                     <?php 
@@ -131,9 +131,10 @@ include('sidebar.php');
                                                                           <td>$row->subcategory_id</td>
                                                                           <td>$row->name_category</td>
                                                                           <td>$row->name_subcategory</td>
-                                                                          <td>$row->add_byusersubc</td>
                                                                           <td>$row->date_entered</td>
-                                                                          <td><a href='".site_url('page/deletesubcategory/'.$row->subcategory_id)."'><button type='button' class='btn btn-danger'>Delete</button></a>
+                                                                          <td><a href='".site_url('page/editsubcategory/'.$row->subcategory_id)."'><button type='button' class='btn btn-warning'>Edit</button></a>
+
+                                                                          <a href='".site_url('page/deletesubcategory/'.$row->subcategory_id)."'><button type='button' class='btn btn-danger'>Delete</button></a>
                                                                       </tr>";  
                                                                     }
                                                                  ?></tbody>

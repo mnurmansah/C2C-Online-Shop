@@ -17,99 +17,41 @@ include('header.php');
 }
 </style>
 
+<?php
+include('header_frontend.php');
+?>
 
-<div id="header">
-<div class="container">
-<div id="welcomeLine" class="row">
-	<div class="span6"> </div>
-	<div class="span6">
-	<div class="pull-right">
-		<a href="product_summary.html"><span class="">Fr</span></a>
-		<a href="product_summary.html"><span class="">Es</span></a>
-		<span class="btn btn-mini">En</span>
-		<a href="product_summary.html"><span>&pound;</span></a>
-		<span class="btn btn-mini">$155.00</span>
-		<a href="product_summary.html"><span class="">$</span></a>
-		<a href="product_summary.html"><span class="btn btn-mini btn-primary"><i class="icon-user"></i>Profile</span> </a> 
-	</div>
-	</div>
-</div>
-<!-- Navbar ================================================== -->
-<div id="logoArea" class="navbar">
-<a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
-	<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-	<span class="icon-bar"></span>
-</a>
-  <div class="navbar-inner">
-    <a class="brand" href="<?=base_url()?>index.php/frontend/index"><img src="<?php echo base_url() ?>assets/themes/images/logo.png" alt="Bootsshop"/></a>
-		<form class="form-inline navbar-search" method="post" action="products.html" >
-		<input id="srchFld" class="srchTxt" type="text" />
-		  <select class="srchTxt">
-			<option>All</option>
-			<option>CLOTHES </option>
-			<option>FOOD AND BEVERAGES </option>
-			<option>HEALTH & BEAUTY </option>
-			<option>SPORTS & LEISURE </option>
-			<option>BOOKS & ENTERTAINMENTS </option>
-		</select> 
-		  <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
-    </form>
-      <?php if ($this->session->userdata('logged')) { ?>
-    <ul id="topMenu" class="nav pull-right">
-	 <li class=""> <a href="<?=base_url()?>index.php/frontend/profile" role="button" style="padding-right:0"><span class="btn btn-large btn-success" ><?php echo $this->session->userdata('user_username') ?></span></a></li>
-	<li class="">
-	 <a href="<?=site_url('loginuser/logout')?>" role="button" style="padding-right:0"><span class="btn btn-large btn-danger">Sign Out</span></a>
-	</li>
-    </ul>
-    <?php }else{ ?>
-	<ul id="topMenu" class="nav pull-right">
-	 <li class=""> <a href="<?=base_url()?>index.php/frontend/register" role="button" style="padding-right:0"><span class="btn btn-large btn-success" >Register</span></a></li>
-	 <li class="">
-	 <a href="<?=base_url()?>index.php/frontend/login" role="button" style="padding-right:0"><span class="btn btn-large btn-success">Log in</span></a>
-	</li>
-	<li class=""> <a href="<?=base_url()?>index.php/frontend/login" role="button" style="padding-right:0"><span class="btn btn-large btn-warning">Post Free Ads</span></a></li>
-    </ul>
-    <?php } ?>	
-  </div>
-</div>
-</div>
-</div>
 <!-- Header End====================================================================== -->
 <div id="mainBody">
 	<div class="container">
 	<div class="row">
 <!-- Sidebar ================================================== -->
 <div id="sidebar" class="span3">
-
-	<div class="well">
-		<div class="well "><img src="<?php echo base_url() ?>assets/user/image/<?php echo $this->session->userdata('user_image') ?>" ></div> 
-		<center><b><?php echo $this->session->userdata('user_username') ?></b></center>
-	</div>
-
+  <div class="well">
+    <div class="well "><center><img src="<?php echo base_url() ?>assets/user/image/<?php echo $this->session->userdata('user_image') ?>" style="max-height: 200px"></center></div> 
+    <center><b><?php echo $this->session->userdata('user_username') ?></b></center>
+  </div>
 
   <div class="well">
         <ul class="nav nav-tabs nav-stacked">
           <li class="nav-header">Main Navigation</li>          
-          <li><a href="#"><i class="icon-user"></i> Profile</a></li>
-          <li><a href="#"><i class="icon-pencil"></i> Notifications</a></li>
-          <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+          <li><a href="<?=base_url()?>index.php/frontend/profile"><i class="icon-user"></i> My Profile</a></li>
+          <li><a href="<?=base_url()?>index.php/frontend/post_product"><i class="icon-pencil"></i> Post & Your Product</a></li>
+          <li><a href="<?=base_url()?>index.php/frontend/"><i class="icon-book
+            "></i> History Order</a></li>
+          <li><a href="<?=base_url()?>index.php/frontend/change_password"><i class="icon-cog"></i> Change Password</a></li>
           <li class="divider"></li>
           <li><a href="#"><i class="icon-flag"></i> Help</a></li>
         </ul>
       </div>
-
-
-
 </div>
 <!-- Sidebar end=============================================== -->
 	<div class="span9">
     <ul class="breadcrumb">
 		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
-		<li class="active">Post New Product</li>
+		<li class="active">Profile</li>
     </ul>
     <div class="well">
-	
 	<?php
             //notifikasi
           if($this->session->flashdata('note')) 
@@ -128,79 +70,81 @@ include('header.php');
       ?>	
 
 	<div class="well">
-		   <ul class="nav nav-tabs">
-          <li><a href="<?=base_url()?>index.php/frontend/profile"><i class="icon-pencil"></i> Post New Product</a></li>
-          <li><a href="<?=base_url()?>index.php/frontend/profile_yourproduct"><i class="icon-user"></i> Your Product</a></li>
-          <li class="divider"></li>
-        </ul>
-     <form class="form-horizontal" action="<?php echo site_url('frontend/user_postproduct') ?>" method="Post" enctype="multipart/form-data">
-	   	 
-	   	 
-	   	 <div class="control-group">
-			<label class="control-label" for="MainCategoryProduct">Main Category Product<sup>*</sup></label>
-			<div class="controls">
- 			<select class="form-control" id="main_category" name="user_maincategory" onChange="getSubcategory()" placeholder="Select Main Category">
- 				<option value="null" selected disabled>Choose Main Category</option>
- 				<?php $no=1; foreach($maincat as $rows => $value) : ?>
- 					<option value="<?= $value->category_id  ?>"><?= $value->name_category ?></option>
- 				 <?php  $no++; endforeach; ?> 
- 				
-            </select>        
-			</div>
-		 </div> 
-		 <div class="control-group">
-			<label class="control-label" for="SubCategoryProduct">Sub Category Product<sup>*</sup></label>
-			<div class="controls">
- 			<select class="form-control" id="subcategory" name="user_subcategory" placeholder="Select Sub Category" disabled>
- 				<option value="null" selected disabled>Choose Sub Category</option>
- 				<!-- <?php //$no=1; foreach($subcat as $rows => $value) : ?> -->
- 					<!-- <option value="<?= $value->subcategory_id  ?>"><?= $value->name_subcategory ?></option> -->
- 				 <!-- <?php  //$no++; endforeach; ?>  -->
-            </select>        
-			</div>
-		 </div>
-		 <div class="control-group">
-			<label class="control-label" for="ProductName">Product Name <sup>*</sup></label>
-			<div class="controls">
-			  <input type="text" id="ProductName" name="user_productname" placeholder="Product Name" required>
-			</div>
-		 </div>
-		 <div class="control-group">
-			<label class="control-label" for="ProductCondition">Product Condition<sup>*</sup></label>
-			<div class="controls">
- 			<select class="form-control" name="user_productcondition" placeholder="Select Product Condition">
- 				<option>New</option>
-                <option>Second</option>
-            </select>        
-			</div>
-		 </div>
-		 <div class="control-group">
-			<label class="control-label" for="ProductPrice">Product Price ($) <sup>*</sup></label>
-			<div class="controls">
-			  <input type="text" id="ProductPrice" name="user_productprice" placeholder="Product Price" required>
-			</div>
-		 </div>
-		 <div class="control-group">
-			<label class="control-label" for="ProductDescription">Product Description<sup>*</sup></label>
-			<div class="controls">
-              <textarea class="input-xxlarge" type="text" rows="3" id="ProductDescription" name="user_productdescription" placeholder="Product Description" required>
-			  </textarea>
-			</div>
-		 </div>
-	 <div class="control-group">
-		<label class="control-label" for="ProductImage">Product Image <sup>*</sup></label>
-		<div class="controls">
-		  <input type="file" id="ProductImage" name="user_productimage">
-		</div>
-	  </div>
-	  <div class="control-group">
-			<div class="controls">
-				<input class="btn btn-large btn-success" type="submit" value="Post Product" />
-			</div>
-		</div>	
-	</form>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><?php echo $this->session->userdata('user_fullname') ?></h3>
+          
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Username</td>
+                        <td> : &nbsp; <?php echo $this->session->userdata('user_username') ?></td>
+                      </tr>
+                      <tr>
+                        <td>Address</td>
+                        <td> : &nbsp; <?php echo $this->session->userdata('user_address') ?></td>
+                      </tr>
+                        <td>Phone Number</td>
+                        <td> : &nbsp; <?php echo $this->session->userdata('user_phonenumber') ?></td>                 
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td> : &nbsp; <?php echo $this->session->userdata('user_email') ?></a></td>
+                      </tr>
+                      <tr>
+                        <td>Register Date</td>
+                        <td> : &nbsp; <?php echo $this->session->userdata('user_registerdate') ?></td>
+                      </tr>
+                      <tr>
+                        <td>Location</td>
+                        <td> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAZDmMkzKRdGQBDDKbJFntQ1q-YPuiQ35g&sensor=false"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAAYrQ_24f5ridX1ZYFLLR_fzMOJXH3HJI&sensor=false"></script>
+<script type="text/javascript">
+var peta;
+var lang = <?php echo $this->session->userdata('user_locationlang') ?>;
+var lat = <?php echo $this->session->userdata('user_locationlat') ?>;
+function peta_awal(){
+    // definisikan koordinat awal untuk peta
+       var awal = new google.maps.LatLng(lang,lat); 
+       // peta option, berupa setting bagaimana peta itu akan muncul
+       var petaoption = {zoom: 14,center: awal,mapTypeId: google.maps.MapTypeId.ROADMAP}; 
+      // menuliskan koordinat peta dan memunculkannya ke halaman web
+      peta = new google.maps.Map(document.getElementById("map_canvas"),petaoption);
+      // marker 
+      tanda = new google.maps.Marker({position: awal, map: peta });}
+</script>
+</head>
+<body onload="peta_awal()">
+<div id="map_canvas" style="width:100%; height:250px" ></div>
+</body>
+<br>
+
+                        <span class="pull-left">
+                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit Profile</a>
+                        </span>
+                        <br>
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+
+                    </div>
+            
+          </div>
+        </div>
+      </div>
     </div>
 
+
+
+ 
+    </div>
+
+    
 
 
 	
@@ -215,15 +159,3 @@ include('header.php');
 <?php
 include('footer.php');
 ?>
-
-<script type="text/javascript">
-	function getSubcategory(url) {
-		var test = $('#main_category').val();
-		var url = "getSubCategory";
-		// alert(test);
-		$.get(url,{ catId: test }, function(data) {
-			$('#subcategory').prop("disabled", false);
-			$('#subcategory').html(data);
-		});
-	};
-</script>

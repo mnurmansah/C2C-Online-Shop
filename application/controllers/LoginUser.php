@@ -24,6 +24,13 @@ function dologin() {
 			$sess_ = [ // 5. Hasil dari query ditampun di dalam variabel $sess_
 				'user_id' 				=> $dataUser->user_id,
 				'user_username' 		=> $dataUser->user_username,
+				'user_fullname' 		=> $dataUser->user_fullname,
+				'user_email' 			=> $dataUser->user_email,
+				'user_address' 			=> $dataUser->user_address,
+				'user_phonenumber'  	=> $dataUser->user_phonenumber,
+				'user_registerdate' 	=> $dataUser->user_registerdate,
+				'user_locationlang'  	=> $dataUser->user_locationlang,
+				'user_locationlat' 		=> $dataUser->user_locationlat,
 				'user_image'			=> $dataUser->user_image,
 				'logged' 				=> true,
 			];
@@ -31,7 +38,7 @@ function dologin() {
 			redirect('frontend');
 		} else {
 			$this->session->set_flashdata('gagal', 'Sorry, username or password are not valid');
-			redirect('LoginUser');
+			redirect('frontend/login');
 		}
 	}
 
