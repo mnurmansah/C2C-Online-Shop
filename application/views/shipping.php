@@ -71,7 +71,7 @@ include('sidebar.php');
                     <div class="card-header">
                         <strong>Add New Shipping</strong>
                     </div>
-                     <form role="form" method="post" action=""<?php echo site_url("shipping/add");?>">
+                     <form role="form" method="post" action="<?php echo site_url("shipping/add");?>">
                         <div class="card-body card-block">
                             <div class="form-group">
                                 <label class=" form-control-label">Shipping Name</label>
@@ -109,22 +109,22 @@ include('sidebar.php');
                                                          <label class=" form-control-label">Shipping Name</label>
                                     <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-thumb-tack"></i></div>
-                                        <input class="form-control" name="shipping_name" required> 
+                                        <input class="form-control" value="<?php echo $shippingdata[0]->shipping_name ?>" name="shipping_name" required> 
                                     </div><br>
                                 <label class=" form-control-label">Shipping Price</label>
                                     <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-thumb-tack"></i></div>
-                                        <input class="form-control" name="shipping_price" required> 
+                                        <input class="form-control" value="<?php echo $shippingdata[0]->shipping_price ?>" name="shipping_price" required> 
                                     </div>
                                     <br>
                                 <label class=" form-control-label">Shipping Phonenumber</label>
                                     <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-thumb-tack"></i></div>
-                                        <input class="form-control" name="shipping_phonenumber" required> 
+                                        <input class="form-control" value="<?php echo $shippingdata[0]->shipping_phonenumber ?>" name="shipping_phonenumber" required> 
                                     </div>
                                     <br>
                                         <center><input type="submit" name="submit" value="Edit Shipping" class="btn btn-success" method="post"></i></input>
-                                            <input type="Reset" name="submit" value="Reset" class="btn btn-danger" method="post"></i></input></center>
+                                            <input type="Reset" name="reset" value="Reset" class="btn btn-danger"></i></input></center>
                                     </div>
                                 </div>
                             </div>

@@ -42,7 +42,7 @@ class ProductModel extends CI_Model {
 
 	function insertDetailCheckout($datas){
 
-  		return $this->db->insert('tbl_productdetails', $datas);
+  		return $this->db->insert('tbl_orderdetails', $datas);
   		 
 	}
 

@@ -73,46 +73,41 @@ include('header_frontend.php');
 
 	<div class="well">
 		   <ul class="nav nav-tabs">
-          <li><a href="<?=base_url()?>index.php/frontend/post_product"><i class="icon-pencil"></i> Post New Product</a></li>
-          <li><a href="<?=base_url()?>index.php/frontend/profile_yourproduct"><i class="icon-user"></i> Your Product Sell</a></li>
+          <li><a href="<?=base_url()?>index.php/frontend/historyorder"><i class="icon-book"></i> History Order</a></li>
           <li class="divider"></li>
         </ul>
 
         <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th>Product ID</th>
-                  <th>Main Category</th>
-                  <th>Sub Category</th>
+                  <th>Order ID</th>
+                  <th>Order Date</th>
+                  <th>User Fullname</th>
                   <th>Product Name</th>
-                  <th>Product Price ($)</th>
+                  <th>Seller ID</th>
                   <th>Product Quantity</th>
-                  <th>Product Condition</th>
-                  <th>Product Date</th>
-                  <th>Product Image</th>
-                  <th>Action</th>
+                  <th>Product Price ($)</th>
+                  <th>Shipping Name</th>
+                  <th>Shipping Price ($)</th>
+                  <th>Amount ($)</th>
         </tr>
               </thead>
               <tbody>
                 <?php 
-                    foreach ($this->UserModel->gettableUserProduct() as $row) {
-                             echo "<tr>
-                             <td>$row->product_id</td>
-                             <td>$row->name_category</td>
-                             <td>$row->name_subcategory</td>
-                             <td>$row->product_name</td>
-                             <td>$row->product_price</td>
-                             <td>$row->product_quantity</td>
-                             <td>$row->product_condition</td>
-                             <td>$row->product_date</td>
-                             <td><img src='".base_url('assets/user/imagepost/'.$row->img_thumbnail)."'/></td>
-
-
-                             <td><a href='".site_url('frontend/'.$row->product_id)."'><button type='button' class='btn btn-primary'>Edit</button></a>
-                             <td><a href='".site_url('frontend/user_deleteproduct/'.$row->product_id)."'><button type='button' class='btn btn-danger'>Delete</button></a>
-                             
-                             </tr>";  
-                     }
+                    foreach ($this->hom->gettableHistoryOrder() as $row) {
+                                                                      echo "<tr>
+                                                                          <td>$row->order_id</td>
+                                                                          <td>$row->order_date</td>
+                                                                          <td>$row->user_fullname</td>
+                                                                          <td>$row->product_name</td>
+                                                                          <td>$row->user_id</td>
+                                                                          <td>$row->product_quantity</td>
+                                                                          <td>$row->product_price</td>
+                                                                          <td>$row->shipping_name</td>
+                                                                          <td>$row->shipping_price</td>
+                                                                          <td>$row->amount</td>
+                                                                      </tr>";  
+                                                                    }
                     ?></tbody>
                     </table>
     </div>

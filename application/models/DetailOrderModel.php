@@ -5,7 +5,7 @@ class DetailOrderModel extends CI_Model {
 	}
 
 	function gettableDetailOrder(){
-		$query=$this->db->get('tbl_productdetails');
+		$query=$this->db->get('tbl_orderdetails');
 		return $query->result();
 	}
 }

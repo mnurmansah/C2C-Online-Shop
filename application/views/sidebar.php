@@ -34,9 +34,9 @@
                     </ul>
                 </li>
                  <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>Product Detail Orders</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>Order Details</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-shopping-cart"></i><a href="<?=base_url()?>index.php/page/detailorder">List Product Detail Orders</a></li>
+                        <li><i class="menu-icon fa fa-shopping-cart"></i><a href="<?=base_url()?>index.php/page/detailorder">List Order Details</a></li>
                     </ul>
                 </li>                  
                 <li class="menu-item-has-children dropdown">

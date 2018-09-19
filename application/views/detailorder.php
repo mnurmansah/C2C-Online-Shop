@@ -45,7 +45,7 @@ include('sidebar.php');
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Product Detail Order</h1>
+                        <h1>Order Details</h1>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@ include('sidebar.php');
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li class="active">Product Detail Order > List Product Detail Order</li>
+                            <li class="active">order Details > List Order Details</li>
                         </ol>
                     </div>
                 </div>
@@ -68,18 +68,18 @@ include('sidebar.php');
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">List Product Detail Order</strong>
+                            <strong class="card-title">List Order Details</strong>
                         </div>
                         <div class="card-body">
                     <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
                     <thead>
-                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 100px;">Product Details ID</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Product ID</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 100px;">Order ID</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 100px;">Product Quantity</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">Product Price</th></tr>
+                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 100px;">Order Details ID</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Product ID</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 100px;">Order ID</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 100px;">Product Quantity</th><th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 100px;">Product Price</th></tr>
                     </thead>
                     <tbody>
                     <?php 
                     foreach ($this->dom->gettableDetailOrder() as $row) {
                              echo "<tr>
-                             <td>$row->productdetails_id</td>
+                             <td>$row->orderdetails_id</td>
                              <td>$row->product_id</td>
                              <td>$row->order_id</td>
                              <td>$row->product_quantity</td>

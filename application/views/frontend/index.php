@@ -98,179 +98,28 @@ include('sidebar.php');
 <!-- Sidebar end=============================================== -->
 		<div class="span9">		
 			<div class="well well-small">
-			<h4>Featured Products <small class="pull-right">200+ featured products</small></h4>
+			<h4>Most Ordered Product</h4>
 			<div class="row-fluid">
 			<div id="featured" class="carousel slide">
 			<div class="carousel-inner">
 			  <div class="item active">
 			  <ul class="thumbnails">
+			  	<?php foreach ($mostProduct as $product): ?>
+			  		
 				<li class="span3">
 				  <div class="thumbnail">
 				  <i class="tag"></i>
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/b1.jpg" alt=""></a>
+					<a href="<?php echo site_url('frontend/product_details/'.$product->product_id) ?>"><img src="<?php echo base_url() ?>assets/user/imagepost/<?php echo $product->img_thumbnail?>" style="height: 120px"></a>
 					<div class="caption">
-					  <h5>Product name</h5>
-					  <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
+					  <h5><?php echo $product->product_name ?></h5>
+					  <h4><a class="btn" href="<?php echo site_url('frontend/product_details/'.$product->product_id) ?>"><i class="icon-zoom-in"></i>VIEW</a> <span class="pull-right"><a class="btn btn-info">$<?php echo $product->product_price ?></a></span></h4>
 					</div>
 				  </div>
 				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-				  <i class="tag"></i>
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/b2.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					  <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-				  <i class="tag"></i>
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/b3.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					   <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-				  <i class="tag"></i>
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/b4.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					   <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-			  </ul>
-			  </div>
-			   <div class="item">
-			  <ul class="thumbnails">
-				<li class="span3">
-				  <div class="thumbnail">
-				  <i class="tag"></i>
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/5.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					  <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-				  <i class="tag"></i>
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/6.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					  <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/7.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					   <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/8.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					   <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-			  </ul>
-			  </div>
-			   <div class="item">
-			  <ul class="thumbnails">
-				<li class="span3">
-				  <div class="thumbnail">
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/9.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					  <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/10.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					  <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/11.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					   <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/1.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					   <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-			  </ul>
-			  </div>
-			   <div class="item">
-			  <ul class="thumbnails">
-				<li class="span3">
-				  <div class="thumbnail">
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/2.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					  <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/3.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					  <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/4.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					   <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-					<a href="product_details.html"><img src="<?php echo base_url() ?>assets/themes/images/products/5.jpg" alt=""></a>
-					<div class="caption">
-					  <h5>Product name</h5>
-					   <h4><a class="btn" href="product_details.html">VIEW</a> <span class="pull-right">$222.00</span></h4>
-					</div>
-				  </div>
-				</li>
+			  	<?php endforeach ?>
 			  </ul>
 			  </div>
 			  </div>
-			  <a class="left carousel-control" href="#featured" data-slide="prev">‹</a>
-			  <a class="right carousel-control" href="#featured" data-slide="next">›</a>
 			  </div>
 			  </div>
 		</div>

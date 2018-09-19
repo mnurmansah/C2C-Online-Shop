@@ -70,28 +70,38 @@ include('sidebar.php');
                     <div class="card-header">
                         <strong>Report Orders</strong>
                     </div>
-                    <form role="form" method="post" action="<?php echo site_url("page/savesubcategory");?>">
+                    <form role="form" method="get" action="<?php echo site_url("page/reportorder");?>">
                     <div class="card-body card-block">
                         <div class="form-group">
                                 <label class=" form-control-label">Date</label>
                                 <div class="card-body">
-                                  <select class="form-control" name="txt_fcategoryid" placeholder="Select Category">
+                                  <select class="form-control" name="bulan" placeholder="Select Month">
                                     <option value="null" selected disabled>Choose Month</option>
-                                    <?php
-                                    foreach ($this->cm->gettablemain_category() as $row ) {
+                                    <?php 
                                         echo "
-                                        <option value=$row->category_id>$row->name_category</option>
+                                        <option value=1>Januari</option>
+                                        <option value=2>Februari</option>
+                                        <option value=3>Maret</option>
+                                        <option value=4>April</option>
+                                        <option value=5>Mei</option>
+                                        <option value=6>Juni</option>
+                                        <option value=7>Juli</option>
+                                        <option value=8>August</option>
+                                        <option value=9>September</option>
+                                        <option value=10>October</option>
+                                        <option value=11>November</option>
+                                        <option value=12>Desember</option>
                                         ";
-                                    }
                                     ?>
                                 </select>                             
                                 </div>
-                                     <center><input type="submit" name="submit" value="Submit" class="btn btn-success" method="post"></i></input></center>
+                                     <center><input type="submit" value="Submit" class="btn btn-success" method="get"></center>
                                 </div>
                             </div>
+                        </form>
                         </div>
                     </div>
-                </form>
+    
             <div class="col-lg-4">
             </div>
         </div>

@@ -38,7 +38,7 @@ include('header_frontend.php');
           <li class="nav-header">Main Navigation</li>          
           <li><a href="<?=base_url()?>index.php/frontend/profile"><i class="icon-user"></i> My Profile</a></li>
           <li><a href="<?=base_url()?>index.php/frontend/post_product"><i class="icon-pencil"></i> Post & Your Product</a></li>
-          <li><a href="<?=base_url()?>index.php/frontend/"><i class="icon-book"></i> History Order</a></li>
+          <li><a href="<?=base_url()?>index.php/frontend/historyorder"><i class="icon-book"></i> History Order</a></li>
           <li><a href="<?=base_url()?>index.php/frontend/change_password"><i class="icon-cog"></i> Change Password</a></li>
           <li class="divider"></li>
           <li><a href="#"><i class="icon-flag"></i> Help</a></li>

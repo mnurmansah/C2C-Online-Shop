@@ -8,6 +8,8 @@ class Frontend extends CI_Controller {
         parent::__construct();
         $this->load->model('UserModel');
         $this->load->model('ProductModel');
+        $this->load->model('MostProductModel');
+        $this->load->model('HistoryOrderModel',"hom");
         $this->load->model('categorymodel');
         $this->load->model("model_category","mc");
         $this->load->helper(array('form', 'url'));
@@ -19,10 +21,12 @@ class Frontend extends CI_Controller {
 		$this->data['category'] = $this->categorymodel->gettablemain_category();
 		$this->data['subcategory'] = $this->categorymodel->gettablesub_category();
 
+
     }
 
 	public function index()
 	{
+		$this->data['mostProduct'] = $this->MostProductModel->getMostProductModel();
 		$this->load->view('frontend/index',$this->data);
 		
 	}
@@ -105,6 +109,12 @@ class Frontend extends CI_Controller {
 	{
 		$this->load->view('frontend/profile_yourproduct');
 	}
+
+	public function historyorder()
+	{
+		$this->load->view('frontend/historyorder');
+	}
+
 
 	public function shopping()
 	{
